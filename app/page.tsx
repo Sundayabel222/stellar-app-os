@@ -52,6 +52,9 @@ export default function Home() {
           <Button asChild variant="outline" size="lg" className="w-full">
             <Link href="/blog">Read our Blog</Link>
           </Button>
+          <Button asChild variant="outline" size="lg" className="w-full">
+            <Link href="/credits/purchase">Purchase Carbon Credits</Link>
+          </Button>
         </CardContent>
       </Card>
     </div>
