@@ -1,10 +1,15 @@
-import Link from "next/link";
-import { Button } from "@/components/atoms/Button";
-import { Text } from "@/components/atoms/Text";
-import { Badge } from "@/components/atoms/Badge";
-import { Counter } from "@/components/atoms/Counter";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/molecules/Card";
-import { OnboardingTour } from "@/components/organisms/OnboardingTour/OnboardingTour";
+import Link from 'next/link';
+import { Button } from '@/components/atoms/Button';
+import { Text } from '@/components/atoms/Text';
+import { Badge } from '@/components/atoms/Badge';
+import { Counter } from '@/components/atoms/Counter';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from '@/components/molecules/Card';
 
 export default function Home() {
   return (
@@ -42,9 +47,7 @@ export default function Home() {
       <Card data-tour-id="get-started-card" className="w-full max-w-md">
         <CardHeader>
           <CardTitle>Get Started</CardTitle>
-          <CardDescription>
-            Connect your wallet to access farm credit services.
-          </CardDescription>
+          <CardDescription>Connect your wallet to access farm credit services.</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-3">
           <Button data-tour-id="connect-wallet-button" variant="default" size="lg" className="w-full">
