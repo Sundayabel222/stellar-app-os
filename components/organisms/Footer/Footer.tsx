@@ -24,6 +24,7 @@ const aboutSection: FooterSection = {
 const resourcesSection: FooterSection = {
   title: "Resources",
   links: [
+    { label: "Settings", href: "/settings" },
     { label: "API Documentation", href: "#api-docs" },
     { label: "Developer Guide", href: "#dev-guide" },
     { label: "Community", href: "#community" },
