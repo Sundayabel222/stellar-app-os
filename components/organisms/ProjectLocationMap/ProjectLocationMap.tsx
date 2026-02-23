@@ -23,6 +23,7 @@ interface LeafletMapInstance {
 interface LeafletLayer {
   addTo: (map: LeafletMapInstance) => LeafletLayer;
   remove?: () => void;
+  bindPopup?: (content: string) => LeafletLayer;
 }
 
 interface LeafletTileLayer extends LeafletLayer {}
@@ -199,7 +200,7 @@ export function ProjectLocationMap({
         }
 
         const marker = L.marker([lat, lng]).addTo(map);
-        marker.bindPopup(
+        marker.bindPopup?.(
           `<strong>${escapeHtml(projectName)}</strong><br />${escapeHtml(locationLabel)}`
         );
 
