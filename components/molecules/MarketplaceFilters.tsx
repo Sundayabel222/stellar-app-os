@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { useCallback } from "react";
-import { Input } from "@/components/atoms/Input";
-import { Select } from "@/components/atoms/Select";
-import { Button } from "@/components/atoms/Button";
-import { Text } from "@/components/atoms/Text";
-import type { MarketplaceFiltersProps } from "@/lib/types/marketplace";
-import { Search, X } from "lucide-react";
+import { useCallback } from 'react';
+import { Input } from '@/components/atoms/Input';
+import { Select } from '@/components/atoms/Select';
+import { Button } from '@/components/atoms/Button';
+import { Text } from '@/components/atoms/Text';
+import type { MarketplaceFiltersProps } from '@/lib/types/marketplace';
+import { Search, X } from 'lucide-react';
 
 /**
  * MarketplaceFilters molecule component
- * 
+ *
  * Provides filtering, sorting, and search controls for marketplace listings.
  * Features:
  * - Project type filter dropdown
@@ -18,7 +18,7 @@ import { Search, X } from "lucide-react";
  * - Search input with clear button
  * - Responsive layout
  * - Accessible with ARIA labels
- * 
+ *
  * Requirements: Issue #23 - Marketplace Listings
  */
 export function MarketplaceFilters({
@@ -33,7 +33,7 @@ export function MarketplaceFilters({
   const handleTypeChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
       const value = e.target.value;
-      onTypeChange(value === "" ? null : (value as typeof selectedType));
+      onTypeChange(value === '' ? null : (value as typeof selectedType));
     },
     [onTypeChange]
   );
@@ -53,7 +53,7 @@ export function MarketplaceFilters({
   );
 
   const handleClearSearch = useCallback(() => {
-    onSearchChange("");
+    onSearchChange('');
   }, [onSearchChange]);
 
   return (
@@ -95,7 +95,7 @@ export function MarketplaceFilters({
           <Select
             id="project-type-filter"
             variant="primary"
-            value={selectedType || ""}
+            value={selectedType || ''}
             onChange={handleTypeChange}
             aria-label="Filter by project type"
           >
@@ -154,7 +154,7 @@ export function MarketplaceFilters({
               className="h-7 text-xs"
               aria-label="Clear search filter"
             >
-              Search: "{searchQuery.length > 20 ? searchQuery.slice(0, 20) + "..." : searchQuery}"
+              Search: "{searchQuery.length > 20 ? searchQuery.slice(0, 20) + '...' : searchQuery}"
               <X className="ml-1 h-3 w-3" />
             </Button>
           )}

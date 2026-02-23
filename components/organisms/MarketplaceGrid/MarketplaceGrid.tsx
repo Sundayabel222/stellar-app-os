@@ -1,25 +1,21 @@
-"use client";
+'use client';
 
-import { ListingCard } from "@/components/molecules/ListingCard";
-import { Text } from "@/components/atoms/Text";
-import type { MarketplaceGridProps } from "@/lib/types/marketplace";
+import { ListingCard } from '@/components/molecules/ListingCard';
+import { Text } from '@/components/atoms/Text';
+import type { MarketplaceGridProps } from '@/lib/types/marketplace';
 
 /**
  * MarketplaceGrid organism component
- * 
+ *
  * Renders a responsive CSS Grid of ListingCard components.
  * Includes an empty state for zero listings and an aria-live region
  * so screen readers announce content changes on filter/sort/pagination.
- * 
+ *
  * Requirements: Issue #23 - Marketplace Listings
  */
 export function MarketplaceGrid({ listings, currentUserId }: MarketplaceGridProps) {
   return (
-    <section
-      aria-label="Marketplace listings"
-      aria-live="polite"
-      aria-atomic="false"
-    >
+    <section aria-label="Marketplace listings" aria-live="polite" aria-atomic="false">
       {listings.length === 0 ? (
         <EmptyState />
       ) : (
@@ -29,10 +25,7 @@ export function MarketplaceGrid({ listings, currentUserId }: MarketplaceGridProp
         >
           {listings.map((listing) => (
             <li key={listing.id}>
-              <ListingCard
-                listing={listing}
-                isOwnListing={currentUserId === listing.sellerId}
-              />
+              <ListingCard listing={listing} isOwnListing={currentUserId === listing.sellerId} />
             </li>
           ))}
         </ul>
@@ -74,7 +67,8 @@ function EmptyState() {
         No listings found
       </Text>
       <Text variant="muted" as="p" className="max-w-sm">
-        There are no marketplace listings matching your current filters. Try adjusting your search or filters.
+        There are no marketplace listings matching your current filters. Try adjusting your search
+        or filters.
       </Text>
     </div>
   );

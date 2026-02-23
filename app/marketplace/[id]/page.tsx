@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
-import { use } from "react";
-import { useRouter } from "next/navigation";
-import { Button } from "@/components/atoms/Button";
-import { Badge } from "@/components/atoms/Badge";
-import { Text } from "@/components/atoms/Text";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/molecules/Card";
-import { getMockMarketplaceListings } from "@/lib/api/mock/marketplaceListings";
-import { ArrowLeft, User, MapPin, Calendar, Shield, Package } from "lucide-react";
+import { use } from 'react';
+import { useRouter } from 'next/navigation';
+import { Button } from '@/components/atoms/Button';
+import { Badge } from '@/components/atoms/Badge';
+import { Text } from '@/components/atoms/Text';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/molecules/Card';
+import { getMockMarketplaceListings } from '@/lib/api/mock/marketplaceListings';
+import { ArrowLeft, User, MapPin, Calendar, Shield, Package } from 'lucide-react';
 
 /**
  * Formats a number as USD currency
  */
 function formatPrice(price: number): string {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(price);
@@ -26,12 +26,12 @@ function formatPrice(price: number): string {
  */
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
   });
 }
 
@@ -41,14 +41,14 @@ interface MarketplaceDetailPageProps {
 
 /**
  * Marketplace listing detail page
- * 
+ *
  * Displays full details of a single marketplace listing including:
  * - Project information
  * - Seller details
  * - Pricing breakdown
  * - Verification status
  * - Purchase action
- * 
+ *
  * Requirements: Issue #23 - Marketplace Listings
  */
 export default function MarketplaceDetailPage({ params }: MarketplaceDetailPageProps) {
@@ -70,10 +70,7 @@ export default function MarketplaceDetailPage({ params }: MarketplaceDetailPageP
           <Text variant="muted" as="p" className="mb-6">
             The marketplace listing you're looking for doesn't exist or has been removed.
           </Text>
-          <Button
-            onClick={() => router.push("/marketplace")}
-            stellar="primary"
-          >
+          <Button onClick={() => router.push('/marketplace')} stellar="primary">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Marketplace
           </Button>
@@ -84,19 +81,15 @@ export default function MarketplaceDetailPage({ params }: MarketplaceDetailPageP
 
   const handlePurchase = () => {
     // TODO: Implement purchase flow
-    console.log("Initiating purchase for listing:", listing.id);
-    alert("Purchase flow not yet implemented");
+    console.log('Initiating purchase for listing:', listing.id);
+    alert('Purchase flow not yet implemented');
   };
 
   return (
     <main className="container mx-auto px-4 py-8 max-w-4xl">
       {/* Back button */}
       <div className="mb-6">
-        <Button
-          onClick={() => router.push("/marketplace")}
-          variant="ghost"
-          className="pl-0"
-        >
+        <Button onClick={() => router.push('/marketplace')} variant="ghost" className="pl-0">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Marketplace
         </Button>

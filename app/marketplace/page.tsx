@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { useState, useCallback, useMemo } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { MarketplaceGrid } from "@/components/organisms/MarketplaceGrid/MarketplaceGrid";
-import { MarketplaceFilters } from "@/components/molecules/MarketplaceFilters";
-import { PaginationControl } from "@/components/molecules/PaginationControl";
-import { Text } from "@/components/atoms/Text";
-import { getMockMarketplaceListings } from "@/lib/api/mock/marketplaceListings";
-import type { ProjectType, SortOption } from "@/lib/types/marketplace";
+import { useState, useCallback, useMemo } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { MarketplaceGrid } from '@/components/organisms/MarketplaceGrid/MarketplaceGrid';
+import { MarketplaceFilters } from '@/components/molecules/MarketplaceFilters';
+import { PaginationControl } from '@/components/molecules/PaginationControl';
+import { Text } from '@/components/atoms/Text';
+import { getMockMarketplaceListings } from '@/lib/api/mock/marketplaceListings';
+import type { ProjectType, SortOption } from '@/lib/types/marketplace';
 
 /**
  * Marketplace listings page
- * 
+ *
  * Secondary market for carbon credits with:
  * - Grid of available credit listings (seller, quantity, price, project)
  * - Filter by project type
@@ -19,7 +19,7 @@ import type { ProjectType, SortOption } from "@/lib/types/marketplace";
  * - Search functionality
  * - Server-side pagination with URL params
  * - Responsive and accessible (WCAG 2.1 AA)
- * 
+ *
  * Requirements: Issue #23 - Marketplace Listings
  */
 export default function MarketplacePage() {
@@ -27,10 +27,10 @@ export default function MarketplacePage() {
   const searchParams = useSearchParams();
 
   // Parse URL params
-  const initialPage = parseInt(searchParams.get("page") || "1", 10);
-  const initialType = (searchParams.get("type") as ProjectType) || null;
-  const initialSort = (searchParams.get("sort") as SortOption) || "date-newest";
-  const initialSearch = searchParams.get("search") || "";
+  const initialPage = parseInt(searchParams.get('page') || '1', 10);
+  const initialType = (searchParams.get('type') as ProjectType) || null;
+  const initialSort = (searchParams.get('sort') as SortOption) || 'date-newest';
+  const initialSearch = searchParams.get('search') || '';
 
   // State
   const [currentPage, setCurrentPage] = useState(initialPage);
@@ -50,12 +50,7 @@ export default function MarketplacePage() {
 
   // Update URL params
   const updateUrlParams = useCallback(
-    (params: {
-      page?: number;
-      type?: ProjectType | null;
-      sort?: SortOption;
-      search?: string;
-    }) => {
+    (params: { page?: number; type?: ProjectType | null; sort?: SortOption; search?: string }) => {
       const newParams = new URLSearchParams();
 
       const page = params.page ?? currentPage;
@@ -63,13 +58,13 @@ export default function MarketplacePage() {
       const sort = params.sort ?? sortBy;
       const search = params.search !== undefined ? params.search : searchQuery;
 
-      if (page > 1) newParams.set("page", page.toString());
-      if (type) newParams.set("type", type);
-      if (sort !== "date-newest") newParams.set("sort", sort);
-      if (search) newParams.set("search", search);
+      if (page > 1) newParams.set('page', page.toString());
+      if (type) newParams.set('type', type);
+      if (sort !== 'date-newest') newParams.set('sort', sort);
+      if (search) newParams.set('search', search);
 
       const queryString = newParams.toString();
-      const newUrl = queryString ? `/marketplace?${queryString}` : "/marketplace";
+      const newUrl = queryString ? `/marketplace?${queryString}` : '/marketplace';
       router.push(newUrl, { scroll: false });
     },
     [currentPage, selectedType, sortBy, searchQuery, router]
@@ -107,7 +102,7 @@ export default function MarketplacePage() {
     (page: number) => {
       setCurrentPage(page);
       updateUrlParams({ page });
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     },
     [updateUrlParams]
   );
@@ -116,13 +111,13 @@ export default function MarketplacePage() {
   const buildPaginationUrl = useCallback(
     (page: number) => {
       const params = new URLSearchParams();
-      if (page > 1) params.set("page", page.toString());
-      if (selectedType) params.set("type", selectedType);
-      if (sortBy !== "date-newest") params.set("sort", sortBy);
-      if (searchQuery) params.set("search", searchQuery);
+      if (page > 1) params.set('page', page.toString());
+      if (selectedType) params.set('type', selectedType);
+      if (sortBy !== 'date-newest') params.set('sort', sortBy);
+      if (searchQuery) params.set('search', searchQuery);
 
       const queryString = params.toString();
-      return queryString ? `/marketplace?${queryString}` : "/marketplace";
+      return queryString ? `/marketplace?${queryString}` : '/marketplace';
     },
     [selectedType, sortBy, searchQuery]
   );
@@ -156,9 +151,9 @@ export default function MarketplacePage() {
       <div className="mb-6">
         <Text variant="muted" as="p" aria-live="polite">
           {data.pagination.totalListings === 0
-            ? "No listings found"
+            ? 'No listings found'
             : `Showing ${data.listings.length} of ${data.pagination.totalListings} ${
-                data.pagination.totalListings === 1 ? "listing" : "listings"
+                data.pagination.totalListings === 1 ? 'listing' : 'listings'
               }`}
         </Text>
       </div>

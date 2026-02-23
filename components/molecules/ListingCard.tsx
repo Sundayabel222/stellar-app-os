@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { Badge } from "@/components/atoms/Badge";
-import { Button } from "@/components/atoms/Button";
-import { Text } from "@/components/atoms/Text";
-import { Card, CardContent, CardFooter } from "@/components/molecules/Card";
-import type { ListingCardProps } from "@/lib/types/marketplace";
-import { cn } from "@/lib/utils";
+import Link from 'next/link';
+import { Badge } from '@/components/atoms/Badge';
+import { Button } from '@/components/atoms/Button';
+import { Text } from '@/components/atoms/Text';
+import { Card, CardContent, CardFooter } from '@/components/molecules/Card';
+import type { ListingCardProps } from '@/lib/types/marketplace';
+import { cn } from '@/lib/utils';
 
 /**
  * Formats a number as USD currency
  */
 function formatPrice(price: number): string {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(price);
@@ -28,17 +28,17 @@ function formatRelativeTime(dateString: string): string {
   const now = new Date();
   const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
 
-  if (diffInSeconds < 60) return "Just now";
+  if (diffInSeconds < 60) return 'Just now';
   if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
   if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h ago`;
   if (diffInSeconds < 604800) return `${Math.floor(diffInSeconds / 86400)}d ago`;
-  
-  return date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
 /**
  * ListingCard molecule component
- * 
+ *
  * Displays a marketplace listing card with project details, pricing, and seller info.
  * Features:
  * - Project name and type
@@ -49,7 +49,7 @@ function formatRelativeTime(dateString: string): string {
  * - Visual indicator for own listings
  * - Responsive layout
  * - Accessible with ARIA labels
- * 
+ *
  * Requirements: Issue #23 - Marketplace Listings
  */
 export function ListingCard({ listing, isOwnListing = false }: ListingCardProps) {
@@ -70,8 +70,8 @@ export function ListingCard({ listing, isOwnListing = false }: ListingCardProps)
   return (
     <Card
       className={cn(
-        "flex flex-col h-full transition-all duration-200 hover:shadow-lg",
-        isOwnListing && "border-stellar-blue border-2"
+        'flex flex-col h-full transition-all duration-200 hover:shadow-lg',
+        isOwnListing && 'border-stellar-blue border-2'
       )}
     >
       <CardContent className="flex-1 p-6 space-y-4">
@@ -159,9 +159,7 @@ export function ListingCard({ listing, isOwnListing = false }: ListingCardProps)
           width="full"
           aria-label={`View details for ${projectName}`}
         >
-          <Link href={`/marketplace/${id}`}>
-            View Details
-          </Link>
+          <Link href={`/marketplace/${id}`}>View Details</Link>
         </Button>
       </CardFooter>
     </Card>
