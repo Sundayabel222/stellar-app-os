@@ -3,6 +3,7 @@ import { Button } from '@/components/atoms/Button';
 import { Text } from '@/components/atoms/Text';
 import { Badge } from '@/components/atoms/Badge';
 import { Counter } from '@/components/atoms/Counter';
+import { OnboardingTour } from '@/components/organisms/OnboardingTour/OnboardingTour';
 import {
   Card,
   CardHeader,

@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 /**
  * Props for SearchBar component
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export interface SearchBarProps {
   /** Initial value for the search input */
   initialValue?: string;

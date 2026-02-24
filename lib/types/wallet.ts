@@ -23,6 +23,7 @@ export interface WalletContextValue {
   refreshBalance: () => Promise<void>;
   isLoading: boolean;
   error: string | null;
+  loadPersistedConnection: () => void;
 }
 
 export interface WalletConnectionProps {
