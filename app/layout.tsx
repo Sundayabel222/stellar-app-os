@@ -1,13 +1,9 @@
-import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
-import { Header } from "@/components/organisms/Header/Header";
-import { Footer } from "@/components/organisms/Footer/Footer";
-import "./globals.css";
-import { WalletProviderWrapper } from "@/components/providers/WalletProviderWrapper";
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
+import { Header } from '@/components/organisms/Header/Header';
 import { Footer } from '@/components/organisms/Footer/Footer';
+import './globals.css';
+import { WalletProviderWrapper } from '@/components/providers/WalletProviderWrapper';
 
 const inter = Inter({
   variable: '--font-inter',
