@@ -52,7 +52,9 @@ export function WebhookFilterBar({
           <Select
             id="status-filter"
             value={filters.status}
-            onChange={(e) => onFilterChange({ status: e.target.value as WebhookEventStatus | 'all' })}
+            onChange={(e) =>
+              onFilterChange({ status: e.target.value as WebhookEventStatus | 'all' })
+            }
             variant="primary"
           >
             <option value="all">All Statuses</option>
@@ -72,7 +74,9 @@ export function WebhookFilterBar({
           <Select
             id="event-type-filter"
             value={filters.eventType}
-            onChange={(e) => onFilterChange({ eventType: e.target.value as WebhookEventType | 'all' })}
+            onChange={(e) =>
+              onFilterChange({ eventType: e.target.value as WebhookEventType | 'all' })
+            }
             variant="primary"
           >
             <option value="all">All Types</option>

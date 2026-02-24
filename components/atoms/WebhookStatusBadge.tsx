@@ -36,7 +36,9 @@ export function WebhookStatusBadge({
 
   return (
     <Badge
-      variant={variant as 'default' | 'secondary' | 'accent' | 'destructive' | 'outline' | 'success'}
+      variant={
+        variant as 'default' | 'secondary' | 'accent' | 'destructive' | 'outline' | 'success'
+      }
       className={`${sizeClass} ${className}`}
       title={description}
     >

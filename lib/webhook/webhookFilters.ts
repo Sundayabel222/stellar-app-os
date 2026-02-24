@@ -1,4 +1,9 @@
-import type { WebhookEvent, WebhookEventStatus, WebhookEventType, WebhookFilterState } from '@/lib/types/webhook';
+import type {
+  WebhookEvent,
+  WebhookEventStatus,
+  WebhookEventType,
+  WebhookFilterState,
+} from '@/lib/types/webhook';
 
 export function filterWebhookEvents(
   events: WebhookEvent[],
